@@ -1,6 +1,6 @@
-package org.example;
+package org.BaseTestLayer;
 
-public class Main {
+public class BaseTestClass {
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }
