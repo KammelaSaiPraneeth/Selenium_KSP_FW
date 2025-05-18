@@ -29,7 +29,7 @@ public class ReporterClassListener extends BaseTestClass implements ITestListene
   logger.info("Test has been started"+className+"==> Method Name"+methodName);
   String[] groupName=result.getTestContext().getIncludedGroups();
   String xmlName=result.getTestContext().getName();
-  ExtentReportManager.createTest(className+"."+methodName,xmlName,className,"Sai Praneeth");
+  ExtentReportManager.createTest(className+"."+methodName,className,"Sai Praneeth");
   ExtentReportManager.getTest().log(Status.INFO,"Test case is started:"+className+"  ==>  "+methodName);
  }
 

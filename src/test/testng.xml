@@ -7,13 +7,9 @@
         <classes>
             <class name="com.TestExecution.TestCase1"/>
             <class name="com.TestExecution.TestCase2"/>
+            <class name="com.TestExecution.TestCase3"/>
+            <class name="com.TestExecution.TestCase4"/>
         </classes>
     </test>
 
-    <test name="Complex Test">
-        <classes>
-            <class name="com.TestExecution.TestCase1"/>
-            <class name="com.TestExecution.TestCase2"/>
-        </classes>
-    </test>
 </suite>

@@ -25,11 +25,11 @@ public class ExtentReportManager {
         extReports.attachReporter(extSparkReporter);
     }
 
-    public static void createTest(String testName, String xmlName,String className, String author)
+    public static void createTest(String testName,String className, String author)
     {
         extTest= extReports
                 .createTest("<b>" +testName+ "</b>")
-                .assignCategory(xmlName,className)
+                .assignCategory(className)
                 .assignAuthor(author)
                 .assignDevice("Chrome");
         test.set(extTest);

@@ -15,33 +15,31 @@ import org.testng.annotations.BeforeTest;
 public class BaseTestClass {
 
     private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
-    protected static final Logger logger= LogManager.getLogger(BaseTestClass.class);
+    protected static final Logger logger = LogManager.getLogger(BaseTestClass.class);
 
     @BeforeSuite(alwaysRun = true)
-    public void beforeSuite(ITestContext context)
-    {
-        String suiteName=context.getSuite().getName();
-        String[] groups=context.getIncludedGroups();
-        logger.info("Execution for the suited started :"+suiteName);
+    public void beforeSuite(ITestContext context) {
+        String suiteName = context.getSuite().getName();
+        String[] groups = context.getIncludedGroups();
+        logger.info("Execution for the suited started :" + suiteName);
         ExtentReportManager.setupExtentReport();
-        ExtentReportManager.getReport().setSystemInfo("suiteName",suiteName);
+        ExtentReportManager.getReport().setSystemInfo("suiteName", suiteName);
     }
 
     @BeforeTest(alwaysRun = true)
-    public void beforeTest(ITestContext context)
-    {
-        String testName=context.getName();
-        logger.info("Started execution of the test"+testName);
-        ExtentReportManager.getReport().setSystemInfo("TestName ",testName);
+    public void beforeTest(ITestContext context) {
+        String testName = context.getName();
+        logger.info("Started execution of the test" + testName);
+        ExtentReportManager.getReport().setSystemInfo("TestName ", testName);
     }
 
     int totaltests;
     int passedTests;
     int failedTests;
     int skippedTests;
+
     @AfterMethod
-            public void afterMethod(ITestResult result)
-    {
+    public void afterMethod(ITestResult result) {
         totaltests++;
         switch (result.getStatus()) {
             case ITestResult.FAILURE:
@@ -58,17 +56,17 @@ public class BaseTestClass {
                 break;
         }
     }
-   @AfterSuite
-    public void afterSuite()
-   {
-       int percentage=(totaltests/passedTests)*100;
 
-       ExtentReportManager.createCustomTable(String.valueOf(totaltests),
-               String.valueOf(passedTests),
-               String.valueOf(failedTests),
-               String.valueOf(skippedTests),
-               String.valueOf(percentage));
-
-       ExtentReportManager.flushReport();
-   }
-}
+    @AfterSuite(alwaysRun = true)
+    public void afterSuite() {
+        int totalTestsConsidered = totaltests - skippedTests;
+            double percentage = (double) passedTests / totalTestsConsidered * 100;
+            System.out.println("Percentage" + percentage);
+            ExtentReportManager.createCustomTable(String.valueOf(totaltests),
+                    String.valueOf(passedTests),
+                    String.valueOf(failedTests),
+                    String.valueOf(skippedTests),
+                    String.format("%.2f", percentage));
+            ExtentReportManager.flushReport();
+        }
+    }
