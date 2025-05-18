@@ -2,6 +2,7 @@ package org.TestNGUtilities;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
@@ -68,4 +69,10 @@ public class ExtentReportManager {
                 + "</table>";
         extReports.setSystemInfo("Test Summary", customTable);
     }
+
+    public static void logStep(String message) {
+       extTest.log(Status.INFO,message);
+       //extTest.info(message);
+    }
+
 }

@@ -1,23 +1,22 @@
 package org.TestNGUtilities;
 
 import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.BaseTestLayer.BaseTestClass;
+import org.testng.IRetryAnalyzer;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import org.testng.ITestContext;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-
+import org.completeUtilities.utilitiesClass;
 import java.util.HashSet;
 import java.util.Set;
 
 
-public class ReporterClassListener extends BaseTestClass implements ITestListener
+public class listenerClassUtility extends BaseTestClass implements ITestListener,IRetryAnalyzer
 {
- public ExtentSparkReporter sparkReporter;
- public ExtentReports extReports;
+ public static ExtentSparkReporter sparkReporter;
+ public static ExtentReports extReports;
  public ExtentTest extTest;
  private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
@@ -48,7 +47,7 @@ public class ReporterClassListener extends BaseTestClass implements ITestListene
   logger.info("Test case has failed:" +className+ " => " +methodName);
   ExtentReportManager.getTest().log(Status.FAIL,"Test is Failed:"+className+"  ==>  "+methodName);
   ExtentReportManager.getTest().log(Status.FAIL,result.getThrowable());
-
+  utilitiesClass.captureScreenShot(result.getTestContext().getName()+".jpg");
  }
 
  public void onTestSkipped( ITestResult result)
@@ -59,9 +58,19 @@ public class ReporterClassListener extends BaseTestClass implements ITestListene
   ExtentReportManager.getTest().log(Status.SKIP,"Test is Failed:"+className+"  ==>  "+methodName);
   ExtentReportManager.getTest().log(Status.SKIP,result.getThrowable());
  }
+ int count=0;
+ int retryLimit=2;
+ @Override
+ public boolean retry(ITestResult iTestResult)
+ {
+  if(count<retryLimit)
+  {
+   count++;
+   return  true;
+  }
+  return false;
+ }
 
 
-/* public static void logStep(String message) {
-  test.get().info(message);
- }*/
+
 }

@@ -4,6 +4,8 @@ import com.aventstack.extentreports.ExtentTest;
 import org.TestNGUtilities.ExtentReportManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -12,11 +14,12 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 
 
-public class BaseTestClass {
+public abstract class BaseTestClass {
 
     private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
     protected static final Logger logger = LogManager.getLogger(BaseTestClass.class);
 
+   public static WebDriver driver = new ChromeDriver();
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite(ITestContext context) {
         String suiteName = context.getSuite().getName();
@@ -69,4 +72,6 @@ public class BaseTestClass {
                     String.format("%.2f", percentage));
             ExtentReportManager.flushReport();
         }
-    }
+
+
+}
