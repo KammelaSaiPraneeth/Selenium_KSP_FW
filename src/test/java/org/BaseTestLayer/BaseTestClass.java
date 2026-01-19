@@ -1,7 +1,6 @@
 package org.BaseTestLayer;
 
 import com.aventstack.extentreports.ExtentTest;
-import org.PageLayer.loginPage;
 import org.TestNGUtilities.ExtentReportManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
