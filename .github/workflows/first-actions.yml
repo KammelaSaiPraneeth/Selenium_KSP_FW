@@ -14,16 +14,13 @@ jobs:
           java-version: "17"
           cache: maven
 
-#      - name: run TestNg suite
-#        run: mvn -B test -DsuiteXmlFile=https://github.com/KammelaSaiPraneeth/Selenium_KSP_FW/blob/3edbfd47da4b4f6d245e6641fcd43aecd1b12819/src/test/testng.xml
-
       - name: Install Xvfb (optional, safe)
         run: sudo apt-get update && sudo apt-get install -y xvfb
 
       - name: Run tests (TestNG suite)
         run: |
           xvfb-run -a mvn -B -ntp clean test \
-            -Dsurefire.suiteXmlFiles=src/test/resources/testng.xml \
+            -Dsurefire.suiteXmlFiles=src/test/testng.xml \
             -Dheadless=true
 
       - name: Upload surefire reports
