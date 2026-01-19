@@ -14,6 +14,11 @@ jobs:
           java-version: "17"
           cache: maven
 
+      - name: Install Chrome (stable)
+        uses: browser-actions/setup-chrome@v1
+        with:
+            chrome-version: stable
+
       - name: Install Xvfb (optional, safe)
         run: sudo apt-get update && sudo apt-get install -y xvfb
 
