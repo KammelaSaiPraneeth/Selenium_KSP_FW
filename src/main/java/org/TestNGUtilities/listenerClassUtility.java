@@ -19,6 +19,7 @@ public class listenerClassUtility extends BaseTestClass implements ITestListener
  public static ExtentReports extReports;
  public ExtentTest extTest;
  private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
+ utilitiesClass utilitiesClass= new utilitiesClass();
 
  private static Set<String> executedClasses = new HashSet<>();
  @Override

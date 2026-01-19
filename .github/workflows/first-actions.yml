@@ -1,0 +1,23 @@
+name: Test the Executionb of Test Cases
+on: push
+jobs: 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download the code from repository
+        uses: actions/checkout@v4
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+
+      - name: run TestNg suite
+        run: mvn -B test -DsuiteXmlFile=https://github.com/KammelaSaiPraneeth/Selenium_KSP_FW/blob/3edbfd47da4b4f6d245e6641fcd43aecd1b12819/src/test/testng.xml
+
+
+
+
+
+

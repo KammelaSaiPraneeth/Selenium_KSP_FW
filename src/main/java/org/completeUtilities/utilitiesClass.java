@@ -8,12 +8,18 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.WebDriver;
 
 public class utilitiesClass extends BaseTestClass {
-
     public static String screenShotFolderName="";
+    private static WebDriver driver;
+
+    public utilitiesClass()
+    {
+        this.driver=super.driver;
+    }
+
     public static void captureScreenShot(String fileName)
     {
         System.out.println(" Working is successful for failed screen shots");
@@ -29,7 +35,6 @@ public class utilitiesClass extends BaseTestClass {
         {
             FileUtils.copyFile(sourceFile, destFile);
         } catch (IOException e) {
-
             {
                 e.printStackTrace();
             }

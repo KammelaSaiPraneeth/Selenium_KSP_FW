@@ -6,10 +6,10 @@
     </listeners>
     <test name="SampleTest">
         <classes>
+            <class name="com.TestExecution.loginTest"/>
             <class name="com.TestExecution.TestCase1"/>
-            <!--<class name="com.TestExecution.TestCase2"/>
             <class name="com.TestExecution.TestCase3"/>
-            <class name="com.TestExecution.TestCase4"/>-->
+            <class name="com.TestExecution.TestCase4"/>
         </classes>
     </test>
 
