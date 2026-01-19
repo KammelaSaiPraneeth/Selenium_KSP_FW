@@ -47,7 +47,7 @@ public abstract class BaseTestClass {
 
     public static void initialization() {
         Properties prop = new Properties();
-        try (FileInputStream fis = new FileInputStream("src/main/java/org/config/config.properties")) {
+        try (FileInputStream fis = new FileInputStream("src/test/java/org/config/config.properties")) {
             prop.load(fis);
         } catch (Exception e) {
             e.printStackTrace();
