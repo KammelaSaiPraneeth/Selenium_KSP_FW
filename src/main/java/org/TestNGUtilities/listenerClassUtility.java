@@ -58,9 +58,6 @@ public class listenerClassUtility extends BaseTestClass implements ITestListener
 
  }
 
-//C:\Users\kspraneeth\Desktop\Important\main code\Screenshots\SampleTest.jpg
- //  THis is the file path C:\Screenshots\SampleTest.jpg
-
  public void onTestSkipped( ITestResult result)
  {
   String className = result.getTestClass().getName().substring(result.getTestClass().getName().lastIndexOf(".") + 1);
