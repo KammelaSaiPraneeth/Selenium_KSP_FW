@@ -1,6 +1,5 @@
 package org.completeUtilities;
 
-import io.cucumber.java.bs.I;
 import org.BaseTestLayer.BaseTestClass;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -14,17 +13,18 @@ import org.apache.commons.io.FileUtils;
 public class utilitiesClass extends BaseTestClass {
 
     public static String screenShotFolderName="";
-    public static void captureScreenShot(String fileName)
+    public static String captureScreenShot(String fileName)
     {
-        System.out.println(" Working is successful for failed screen shots");
         if(screenShotFolderName==null) {
             LocalDateTime myDateObj = LocalDateTime.now();
             DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("ddMMyyyyHHmmss");
-            String screenShotFolderName = myDateObj.format(myFormatObj);
+            screenShotFolderName = myDateObj.format(myFormatObj);
+            System.out.println(" screenShotFolderName " +screenShotFolderName);
         }
         TakesScreenshot takesScreenshot= (TakesScreenshot) driver;
         File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
-        File destFile = new File("./Screenshots/"+screenShotFolderName+fileName);
+        File destFile = new File("/Screenshots/"+screenShotFolderName+fileName);
+        System.out.println(" dest file " +destFile);
         try
         {
             FileUtils.copyFile(sourceFile, destFile);
@@ -34,6 +34,7 @@ public class utilitiesClass extends BaseTestClass {
                 e.printStackTrace();
             }
         }
-        System.out.println("Screenshot saved successfully");
+
+        return destFile.getAbsolutePath();
     }
 }

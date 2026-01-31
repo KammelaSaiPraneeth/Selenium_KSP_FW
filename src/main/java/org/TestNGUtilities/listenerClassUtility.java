@@ -9,6 +9,8 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.completeUtilities.utilitiesClass;
+
+import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,6 +23,7 @@ public class listenerClassUtility extends BaseTestClass implements ITestListener
  private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
  private static Set<String> executedClasses = new HashSet<>();
+
  @Override
  public void onTestStart(ITestResult result) {
   String className=result.getTestClass().getName().substring(result.getTestClass().getName().lastIndexOf(".")+1);
@@ -47,8 +50,16 @@ public class listenerClassUtility extends BaseTestClass implements ITestListener
   logger.info("Test case has failed:" +className+ " => " +methodName);
   ExtentReportManager.getTest().log(Status.FAIL,"Test is Failed:"+className+"  ==>  "+methodName);
   ExtentReportManager.getTest().log(Status.FAIL,result.getThrowable());
-  utilitiesClass.captureScreenShot(result.getTestContext().getName()+".jpg");
+  String failedImagePath=utilitiesClass.captureScreenShot(result.getTestContext().getName()+".jpg");
+  System.out.println(" THis is the file path " +failedImagePath);
+  String path = failedImagePath.replace("\\", "/");
+  ExtentReportManager.getTest().addScreenCaptureFromPath(path, "Failure Screenshot");
+
+
  }
+
+//C:\Users\kspraneeth\Desktop\Important\main code\Screenshots\SampleTest.jpg
+ //  THis is the file path C:\Screenshots\SampleTest.jpg
 
  public void onTestSkipped( ITestResult result)
  {
@@ -59,7 +70,8 @@ public class listenerClassUtility extends BaseTestClass implements ITestListener
   ExtentReportManager.getTest().log(Status.SKIP,result.getThrowable());
  }
  int count=0;
- int retryLimit=2;
+ int retryLimit=1;
+
  @Override
  public boolean retry(ITestResult iTestResult)
  {
