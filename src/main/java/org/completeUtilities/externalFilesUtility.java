@@ -6,8 +6,8 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -92,7 +92,48 @@ public class externalFilesUtility {
     }
     public  static  void main(String[] args)
     {
-        externalFilesUtility ee= new externalFilesUtility();
-        ee.mapTrailCall();
+     /*   externalFilesUtility ee= new externalFilesUtility();
+        ee.readFileContent();*/
+        StringBuffer sb1 = new StringBuffer("Hello");
+        StringBuffer sb2 = sb1;
+
+        sb1.append(" World");
+        if (sb1 == sb2)
+        {  System.out.println("Same");}
+        else
+        {   System.out.println("Not Same");}
+        System.out.println(" This is the value------" +sb1);
+        System.out.println(" This is the value------" +sb2);
+
+        if(sb1.equals(sb1))
+        {
+            System.out.println(" Equals is working");
+        }
+
     }
+
+
+    public void readFileContent(){
+        //Read File Content
+
+        String filePath="C:\\Users\\kspraneeth\\Desktop\\Important\\main code\\src\\test\\resources\\example.json";
+        String line, fileContent = "";
+        FileReader fileReader;
+        try {
+            fileReader = new FileReader(filePath);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            while((line = bufferedReader.readLine()) != null) {
+                fileContent+=line;
+            }
+            bufferedReader.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //return fileContent;
+        System.out.println(" THis is the file content"+fileContent);
+    }
+
+
 }
