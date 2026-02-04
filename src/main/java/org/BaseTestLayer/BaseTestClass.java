@@ -22,8 +22,6 @@ import java.util.Properties;
 
 
 public abstract class BaseTestClass {
-
-    private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
     protected static final Logger logger = LogManager.getLogger(BaseTestClass.class);
     public static WebDriver driver;
     Properties prop = new Properties();

@@ -17,12 +17,7 @@ import java.util.Set;
 
 public class listenerClassUtility extends BaseTestClass implements ITestListener,IRetryAnalyzer
 {
- public static ExtentSparkReporter sparkReporter;
- public static ExtentReports extReports;
- public ExtentTest extTest;
- private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
-
- private static Set<String> executedClasses = new HashSet<>();
+// private static Set<String> executedClasses = new HashSet<>();
 
  @Override
  public void onTestStart(ITestResult result) {
@@ -32,6 +27,7 @@ public class listenerClassUtility extends BaseTestClass implements ITestListener
   String[] groupName=result.getTestContext().getIncludedGroups();
   String xmlName=result.getTestContext().getName();
   ExtentReportManager.createTest(className+"."+methodName,className,"Sai Praneeth");
+
   ExtentReportManager.getTest().log(Status.INFO,"Test case is started:"+className+"  ==>  "+methodName);
  }
 

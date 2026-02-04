@@ -48,6 +48,7 @@ public class ExtentReportManager {
     }
     public static void flushReport()
     {
+
         extReports.flush();
     }
     public static void createCustomTable(String totalTests, String passedTests, String failedTests, String skippedTests, String passPercentage) {

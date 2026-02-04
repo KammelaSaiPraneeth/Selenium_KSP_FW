@@ -24,3 +24,4 @@ target/
 # IntelliJ / local IDE files (optional but common)
 .idea/
 *.iml
+.target
