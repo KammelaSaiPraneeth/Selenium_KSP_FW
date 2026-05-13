@@ -27,7 +27,6 @@ public class listenerClassUtility extends BaseTestClass implements ITestListener
   String[] groupName=result.getTestContext().getIncludedGroups();
   String xmlName=result.getTestContext().getName();
   ExtentReportManager.createTest(className+"."+methodName,className,"Sai Praneeth");
-
   ExtentReportManager.getTest().log(Status.INFO,"Test case is started:"+className+"  ==>  "+methodName);
  }
 
@@ -47,8 +46,8 @@ public class listenerClassUtility extends BaseTestClass implements ITestListener
   ExtentReportManager.getTest().log(Status.FAIL,"Test is Failed:"+className+"  ==>  "+methodName);
   ExtentReportManager.getTest().log(Status.FAIL,result.getThrowable());
   String failedImagePath=utilitiesClass.captureScreenShot(result.getTestContext().getName()+".jpg");
-  System.out.println(" THis is the file path " +failedImagePath);
   String path = failedImagePath.replace("\\", "/");
+  utilitiesClass.captureScreenShot(result.getTestName());
   ExtentReportManager.getTest().addScreenCaptureFromPath(path, "Failure Screenshot");
 
 
@@ -62,9 +61,12 @@ public class listenerClassUtility extends BaseTestClass implements ITestListener
   ExtentReportManager.getTest().log(Status.SKIP,"Test is Failed:"+className+"  ==>  "+methodName);
   ExtentReportManager.getTest().log(Status.SKIP,result.getThrowable());
  }
+
+
+
+ //The Below block of code helps us to retry when the test is failed
  int count=0;
  int retryLimit=1;
-
  @Override
  public boolean retry(ITestResult iTestResult)
  {

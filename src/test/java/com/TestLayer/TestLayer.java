@@ -2,9 +2,17 @@ package com.TestLayer;
 
 import PageLayer.loginPage;
 import org.BaseTestLayer.BaseTestClass;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import java.time.Duration;
 
 public class TestLayer extends BaseTestClass {
 
@@ -22,6 +30,10 @@ public class TestLayer extends BaseTestClass {
         loginPage lp= new loginPage();
         String actualTitle=lp.loginFunc(userName,password);
         System.out.println(" This is the title of page "+actualTitle);
+        WebDriverWait ww = new WebDriverWait(driver, Duration.ofSeconds(10));
+        Alert until = ww.until(ExpectedConditions.alertIsPresent());
+        until.getText();
+       WebElement ee= ww.until(ExpectedConditions.elementToBeClickable(By.xpath("")));
         Assert.assertEquals(actualTitle,"Products");
     }
 }

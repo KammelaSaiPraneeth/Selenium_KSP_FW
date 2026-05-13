@@ -24,7 +24,7 @@ public class utilitiesClass extends BaseTestClass {
         TakesScreenshot takesScreenshot= (TakesScreenshot) driver;
         File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
         File destFile = new File("/Screenshots/"+screenShotFolderName+fileName);
-        System.out.println(" dest file " +destFile);
+
         try
         {
             FileUtils.copyFile(sourceFile, destFile);

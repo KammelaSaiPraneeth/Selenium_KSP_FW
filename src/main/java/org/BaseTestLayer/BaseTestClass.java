@@ -11,6 +11,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
 import org.testng.ITestContext;
@@ -18,6 +19,8 @@ import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 import java.io.FileInputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 
 
@@ -107,9 +110,13 @@ public abstract class BaseTestClass {
             case "chrome":
                 System.out.println(" This is "+browser + " Browser");
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--start-maximized");
-                chromeOptions.setCapability("browserVersion", "latest");
-                driver = new ChromeDriver(chromeOptions);
+                //chromeOptions.addArguments("--start-maximized");
+               // chromeOptions.setCapability("browserVersion", "latest");
+                try {
+                    driver = new RemoteWebDriver(new URL("http://localhost:4444"), chromeOptions);
+                } catch (MalformedURLException e) {
+                    throw new RuntimeException(e);
+                }
                 break;
 
             case "firefox":
