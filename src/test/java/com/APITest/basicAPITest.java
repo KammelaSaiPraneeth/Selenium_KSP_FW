@@ -1,16 +1,13 @@
 package com.APITest;
 
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import org.testng.annotations.Test;
-import io.cucumber.java.en.Given;
 
 import static io.restassured.RestAssured.given;
 
 
-public class basicTest {
+public class basicAPITest {
 
     @Test
     public void testGet() {

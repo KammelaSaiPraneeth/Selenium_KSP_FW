@@ -10,21 +10,7 @@ import java.util.regex.Pattern;
 
 public class RestAsUtili {
 
-    public void parseData()
-    {
 
-    }
-    public String readAndParseFile(String filePath,String fileName)
-    {
-        String file=filePath+"/"+fileName;
-        String jsonContent;
-        try {
-            jsonContent = new String(Files.readAllBytes(Paths.get(file)));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return jsonContent;
-    }
 
 
     public String  fillUpDate(String jsonDataRet)
@@ -50,9 +36,9 @@ public class RestAsUtili {
     }
     public static  void  main(String[] args)
     {
-        RestAsUtili restut= new RestAsUtili();
-        String dataKso=restut.readAndParseFile("src/test/resources","point.json");
+  /*      RestAsUtili restut= new RestAsUtili();
+     //   String dataKso=restut.readAndParseFile("src/test/resources","point.json");
         String finalData=restut.fillUpDate(dataKso);
-        System.out.println("This is the json data"+finalData);
+        System.out.println("This is the json data"+finalData);*/
     }
 }

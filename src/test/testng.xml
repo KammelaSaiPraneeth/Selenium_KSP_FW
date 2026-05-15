@@ -6,9 +6,7 @@
     </listeners>
     <test name="SampleTest">
         <classes>
-            <class name="com.Docker.Tests"/>
-
+            <class name="com.TestExecution.TestExe"/>
     </classes>
     </test>
-
 </suite>

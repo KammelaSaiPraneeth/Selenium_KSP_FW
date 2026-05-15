@@ -1,6 +1,5 @@
 package org.BaseTestLayer;
 
-import com.aventstack.extentreports.ExtentTest;
 import org.TestNGUtilities.ExtentReportManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,7 +16,6 @@ import org.openqa.selenium.safari.SafariOptions;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-
 import java.io.FileInputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -27,12 +25,11 @@ import java.util.Properties;
 public abstract class BaseTestClass {
     protected static final Logger logger = LogManager.getLogger(BaseTestClass.class);
     public static WebDriver driver;
-    Properties prop = new Properties();
-
     int totaltests;
     int passedTests;
     int failedTests;
     int skippedTests;
+    ConfigManager config = ConfigManager.getInstance();
 
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite(ITestContext context) {
@@ -46,7 +43,7 @@ public abstract class BaseTestClass {
     @BeforeMethod
     public void init() throws InterruptedException {
         driver= initialization();
-        driver.get(prop.getProperty("baseUrl"));
+        driver.get(config.getBaseUrl());
     }
 
     @BeforeTest(alwaysRun = true)
@@ -99,24 +96,18 @@ public abstract class BaseTestClass {
     //Method to init the driver
 
     public WebDriver initialization() {
-        try (FileInputStream fis = new FileInputStream("src/main/java/org/config/config.properties")) {
-            prop.load(fis);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        String browser = prop.getProperty("browser").toLowerCase();
-
+        String browser = config.getBrowser().toLowerCase();
         switch (browser) {
             case "chrome":
                 System.out.println(" This is "+browser + " Browser");
                 ChromeOptions chromeOptions = new ChromeOptions();
                 //chromeOptions.addArguments("--start-maximized");
                // chromeOptions.setCapability("browserVersion", "latest");
-                try {
-                    driver = new RemoteWebDriver(new URL("http://localhost:4444"), chromeOptions);
-                } catch (MalformedURLException e) {
+               // try {
+                    driver = new ChromeDriver(chromeOptions);
+              /*  } catch (MalformedURLException e) {
                     throw new RuntimeException(e);
-                }
+                }*/
                 break;
 
             case "firefox":
