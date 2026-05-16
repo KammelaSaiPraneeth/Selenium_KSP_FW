@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8eda0ee2-ed0d-496c-9c9b-9e78f9f8efeb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Screenshots/SampleTest.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/extent.html" beforeDir="false" afterPath="$PROJECT_DIR$/reports/extent.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/BaseTestLayer/BaseTestClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/BaseTestLayer/BaseTestClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/BaseTestLayer/WebDriverManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/BaseTestLayer/WebDriverManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/TestNGUtilities/listenerClassUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Listerners/listenerClassUtility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/TestNGUtilities/testRetryAnalyserListerner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/Listerners/testRetryAnalyserListerner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/config/config.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/JavaDSAProgramms/ArraysDSA.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/JavaDSAProgramms/StringsPrograms.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PageLayer/loginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/PageLayer/loginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/TestExecution/TestCase1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/TestExecution/TestCase1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/TestLayer/TestLayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/TestLayer/TestLayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/excelData/Data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/testdata/excel/Data.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/excelData/DataT.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/testdata/excel/DataT.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/jsonData/example.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/testdata/json/example.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/testng.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/suites/sanity.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/BaseTestLayer/BaseTestClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/BaseTestLayer/BaseTestClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/BaseTestLayer/WebDriverManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/BaseTestLayer/WebDriverManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/TestNGUtilities/listenerClassUtility.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/TestNGUtilities/testRetryAnalyserListerner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/JavaDSAProgramms/ArraysDSA.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/JavaDSAProgramms/StringsPrograms.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/PageLayer/loginPage.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="3Dl9j7uijZT5GLwI0SOAvU0yg5H" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.TestExe.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "TestNG.Testing.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kspraneeth\Desktop\ChangesForRepo\src\test\resources\TestData" />
+      <recent name="C:\Users\kspraneeth\Desktop\ChangesForRepo\src\test\resources\TestData\excelData" />
+      <recent name="C:\Users\kspraneeth\Desktop\ChangesForRepo\src\test\resources\testSuite" />
+      <recent name="C:\Users\kspraneeth\Desktop\ChangesForRepo\src\test\resources\config" />
+      <recent name="C:\Users\kspraneeth\Desktop\ChangesForRepo\src\test\resources\excelData" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG.Testing">
+    <configuration name="TestExe" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ProjectSPK" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.TestExecution.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.TestExecution" />
+      <option name="MAIN_CLASS_NAME" value="com.TestExecution.TestExe" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Testing" type="TestNG">
+      <module name="ProjectSPK" />
+      <shortenClasspath name="NONE" />
+      <useClassPathOnly />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/suites/sanity.xml" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <option name="VM_PARAMETERS" value="-ea -Denv=test" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.TestExe" />
+      <item itemvalue="TestNG.Testing" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestExe" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.31033.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8eda0ee2-ed0d-496c-9c9b-9e78f9f8efeb" name="Changes" comment="" />
+      <created>1778845921672</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1778845921672</updated>
+      <workItem from="1778845923205" duration="7693000" />
+      <workItem from="1778928868850" duration="7829000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

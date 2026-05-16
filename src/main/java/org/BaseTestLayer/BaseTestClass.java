@@ -3,60 +3,59 @@ package org.BaseTestLayer;
 import org.TestNGUtilities.ExtentReportManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.config.ConfigManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.edge.EdgeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.safari.SafariDriver;
-import org.openqa.selenium.safari.SafariOptions;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-import java.io.FileInputStream;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Properties;
 
 
 public abstract class BaseTestClass {
     protected static final Logger logger = LogManager.getLogger(BaseTestClass.class);
+    ConfigManager config = ConfigManager.getInstance();
+    private final WebDriverManager driverManager = WebDriverManager.getInstance();
     public static WebDriver driver;
     int totaltests;
     int passedTests;
     int failedTests;
     int skippedTests;
-    ConfigManager config = ConfigManager.getInstance();
+
+
+    public WebDriver getDriver() {
+        return driverManager.getDriver();
+    }
 
     @BeforeSuite(alwaysRun = true)
     public void beforeSuite(ITestContext context) {
         String suiteName = context.getSuite().getName();
-        String[] groups = context.getIncludedGroups();
-        logger.info("Execution for the suited started :" + suiteName);
+        logger.info("Suite execution started: {}", suiteName);
         ExtentReportManager.setupExtentReport();
-        ExtentReportManager.getReport().setSystemInfo("suiteName", suiteName);
+        ExtentReportManager.getReport().setSystemInfo("Suite Name", suiteName);
+        ExtentReportManager.getReport().setSystemInfo("Environment", config.getEnvironment());
+        ExtentReportManager.getReport().setSystemInfo("Browser", config.getBrowser());
     }
 
-    @BeforeMethod
-    public void init() throws InterruptedException {
-        driver= initialization();
-        driver.get(config.getBaseUrl());
+    @BeforeMethod(alwaysRun = true)
+    public void init()
+    {
+        String  browser= config.getBrowser();
+        logger.info("Initializing driver for browser: {}", browser);
+        driverManager.initDriver(browser);
+        getDriver().get(config.getBaseUrl());
+        logger.info("Navigated to base URL: {}", config.getBaseUrl());
     }
 
     @BeforeTest(alwaysRun = true)
     public void beforeTest(ITestContext context) {
         String testName = context.getName();
-        logger.info("Started execution of the test" + testName);
+        logger.info("Started execution of the test{}", testName);
         ExtentReportManager.getReport().setSystemInfo("TestName ", testName);
     }
 
     @AfterTest
     public void afterTest()
     {
-        System.out.println(" This is after test method");
+        logger.info("Test block execution completed");
     }
 
     @AfterMethod
@@ -76,7 +75,7 @@ public abstract class BaseTestClass {
                 ExtentReportManager.getTest().pass("Test has been passed");
                 break;
         }
-        driver.quit();
+        driverManager.quitDriver();
     }
 
     @AfterSuite(alwaysRun = true)
@@ -91,48 +90,4 @@ public abstract class BaseTestClass {
                 String.format("%.2f", percentage));
         ExtentReportManager.flushReport();
     }
-
-
-    //Method to init the driver
-
-    public WebDriver initialization() {
-        String browser = config.getBrowser().toLowerCase();
-        switch (browser) {
-            case "chrome":
-                System.out.println(" This is "+browser + " Browser");
-                ChromeOptions chromeOptions = new ChromeOptions();
-                //chromeOptions.addArguments("--start-maximized");
-               // chromeOptions.setCapability("browserVersion", "latest");
-               // try {
-                    driver = new ChromeDriver(chromeOptions);
-              /*  } catch (MalformedURLException e) {
-                    throw new RuntimeException(e);
-                }*/
-                break;
-
-            case "firefox":
-                FirefoxOptions firefoxOptions = new FirefoxOptions();
-                firefoxOptions.addArguments("--width=1920");
-                firefoxOptions.addArguments("--height=1080");
-                firefoxOptions.setCapability("browserVersion", "latest");
-                driver = new FirefoxDriver(firefoxOptions);
-                break;
-
-            case "edge":
-                EdgeOptions edgeOptions = new EdgeOptions();
-                edgeOptions.addArguments("--start-maximized");
-                driver = new EdgeDriver(edgeOptions);
-                break;
-
-            case "safari":
-                SafariOptions safariOptions = new SafariOptions();
-                driver = new SafariDriver(safariOptions);
-                break;
-
-            default:
-                throw new RuntimeException("Invalid browser in config: " + browser);
-        }
-        return driver;
-    }
-
 }
