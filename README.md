@@ -30,7 +30,6 @@ Framework: `Selenium + Java + TestNG + ExtentReports + Log4j2`
 ---
 
 ## 🏗️ Framework Overview
-
 ```
 ProjectSPK is a full-stack test automation framework that supports:
   ✅ UI Testing        — Selenium WebDriver
