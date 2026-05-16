@@ -6,7 +6,7 @@
 ---
 
 ## 👨‍💻 Author
-**Sai** | QA Lead → QA Architect  
+**Sai Praneeth Kammela** | QA Lead → QA Architect  
 Framework: `Selenium + Java + TestNG + ExtentReports + Log4j2`
 
 ---
