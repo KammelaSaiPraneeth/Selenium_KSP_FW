@@ -206,4 +206,3 @@ git --version
 | **Factory**                | `WebDriverManager.initDriver()`     | Create browser instances dynamically |
 | **Dependency Injection**   | `BasePage(WebDriver driver)`        | Pass driver without tight coupling   |
 | **Composition**            | `BasePage HAS-A WaitsUtil`          | Prefer composition over inheritance  |
-|---------------------------------------------------------------------------------------------------------|
