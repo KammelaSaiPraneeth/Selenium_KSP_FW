@@ -44,6 +44,26 @@ public class ConfigManager {
     {
         return System.getProperty("env");
     }
+
+    // ================================================
+    // DB CONFIG GETTERS
+    // Grabbed from properties based on runtime env
+    // ================================================
+    public String getDbUrl() {
+        return properties.getProperty("db.url");
+    }
+
+    public String getDbUsername() {
+        return properties.getProperty("db.username");
+    }
+
+    public String getDbPassword() {
+        return properties.getProperty("db.password");
+    }
+
+    public String getDbDriver() {
+        return properties.getProperty("db.driver");
+    }
 }
 
 
